@@ -1,0 +1,31 @@
+﻿@model UberTrashInterface.Entities.LogInUser
+
+@{
+    ViewData["Title"] = "LogInUser";
+}
+    <div class="fieldHeader">
+    <form asp-controller="Home" asp-action="LogInUser" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div>@ViewBag.Message</div>
+        <div class="label">
+            <h3>Seller</h3>
+            <p>Welcome back! Login to access the Sweet Marketplace.</p>
+            <p>Are you an Agent? <a asp-controller="Agent" asp-action="LogIn">Agent</a></p>
+        </div>
+        <div class="connectField">
+                <input asp-for="Phone_Number" class="form-control" />
+                <span asp-validation-for="Phone_Number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="bsubmitField" />
+            </div>
+        </form>
+    </div>
+
+<div>
+    <a asp-controller="Home" asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

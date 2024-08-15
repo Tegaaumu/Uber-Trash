@@ -1,0 +1,6 @@
+@Uber_Trash_HostAddress = http://localhost:5025
+
+GET {{Uber_Trash_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

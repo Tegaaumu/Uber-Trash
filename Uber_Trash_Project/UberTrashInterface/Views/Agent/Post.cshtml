@@ -1,0 +1,82 @@
+﻿@model UberTrashInterface.Entities.User
+
+@{
+    ViewData["Title"] = "Post";
+}
+<div class="wasteSolution">
+    <div class="wasteSolutionIntro">
+        <h3>Choose Your Waste Solution</h3>
+        <p>Enter your information to start services</p>
+    </div>
+    <div class="wasteInformationcontact">
+        <div class="businesstype">
+            <div class="Hometype">
+                <i></i>
+                <h5>For Your Home</h5>
+                <i></i>
+            </div>
+            <div class="Hometype">
+                <i></i>
+                <h5>For Your Business & Organisation</h5>
+                <i></i>
+            </div>
+        </div>
+        <form asp-action="Post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @if (ViewBag.ErrorMessages != null)
+            {
+                <ul class="text-danger">
+                    <p>@ViewBag.ErrorMessages</p>
+                    <span asp-validation-for="Address" class="text-danger"></span>
+
+                    <span asp-validation-for="Username" class="text-danger"></span>
+
+                    <span asp-validation-for="Password" class="text-danger"></span>
+
+                    <span asp-validation-for="Phone_Number" class="text-danger"></span>
+
+                </ul>
+            }
+
+                <label id="Address" asp-for="Address">
+                    Address
+                <input asp-for="Address" placeholder="e.g 123 Main street,NW, New York" />
+                </label>
+            <div id="usersName">
+                <label asp-for="Username" class="control-label"> UserName
+                    <input asp-for="Username" placeholder="e.g Mark" />
+                </label>
+            </div>
+            <div id="usersName">
+                <label asp-for="Email" id="Email"> Email
+                    <input asp-for="Email" class="form-control" placeholder="e.g address@mail.com" />
+                </label>
+                <span asp-validation-for="Email" class="text-danger"></span>
+                <label asp-for="Password" class="control-label">Password
+                    <input asp-for="Password" />
+                </label>
+            </div>
+
+            <div id="usersName">
+                <label asp-for="Phone_Number" id="Phone">
+                    <input asp-for="Phone_Number" placeholder="e.g " />
+                </label>
+            </div>
+
+            <div>
+                <input type="checkbox" name="agree" id="agree">
+                <label for="agree">I agree to the waste connection terms of services and privacy policy</label>
+            </div>
+
+                <input type="submit" id="submitAddress" value="Create" />
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="Home" asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

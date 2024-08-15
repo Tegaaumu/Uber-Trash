@@ -1,0 +1,892 @@
+
+.header{
+    display: flex;
+    width: 100%;
+    height: 10vh;
+    justify-content: space-around;
+    align-items: center;
+}
+.page_navigation {
+    width: 250px;
+    margin-left:80px;
+}
+.logo{
+    font-size: 30px;
+}
+
+.page_navigation ul{
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    list-style-type: none;
+}
+#ConnectMyWallet {
+    text-decoration:none;
+    padding: 10px 10px;
+    background: #ffa500;
+    color: white;
+    border-radius: 50px;
+}
+.ConnectMyWallet {
+    text-decoration: none;
+    padding: 7px 10px;
+    background: #ffa500;
+    font-size:14px;
+    color: white;
+    border-radius: 50px;
+}
+    #ConnectMyWallet:hover {
+        background: gold;
+    }
+    .page_navigation ul li a{
+    text-decoration: none;
+    font-weight:600;
+    font-size: 20px;
+    color: black;
+}
+    .registration{
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+}
+.registration #signup{
+    background-color: #ffa500;
+    color: #fff;
+    border: 0px;
+}
+.registration #login{
+    background-color: #fff;
+    border-color: #ffa500;
+}
+.registration button{
+    border-radius: 20px;
+    border: 2px solid black;
+    padding: 5px 20px;
+    font-size: 14px;
+}
+.page_navigation ul li a:hover {
+    color: #ffa500;
+}
+
+/*Main*/
+.main {
+    position: relative;
+    padding: 50px 0px;
+    display: flex;
+    justify-content: space-around;
+    height: 120vh;
+    overflow-x: hidden;
+}
+
+#slogan h2 {
+    font-size: 75px;
+    font-weight:800;
+    margin-top:100px;
+}
+
+.company_solgan {
+    width: 500px;
+    justify-content: center;
+    padding: 60px 50px;
+    margin-left:-20px;
+}
+
+.companyImage {
+    align-items: flex-end;
+    margin-right: 700px;
+}
+
+#slogan #secound {
+    margin-top: -7px;
+}
+
+#slogan p {
+    width: 350px;
+    font-weight: 600;
+    font-size:20px;
+    margin-top: 13px;
+}
+
+.userLocation {
+    width: 100%;
+    margin-top: 30px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+    .userLocation #location {
+        padding: 15px 30px;
+        background-color: #ffedcc;
+        border-radius: 50px;
+        border-width: 0px;
+    }
+
+.userLocationButtons {
+    width: 350px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.signup {
+    background-color: #ffa500;
+    color: #fff;
+    border: 0px;
+    padding: 10px 30px;
+    border-radius: 50px;
+}
+
+    .companyImage img:nth-child(1) {
+        position: absolute;
+        z-index: 1;
+        height: 60vh;
+        margin-top: 80px;
+        margin-left: -50px;
+    }
+
+    .companyImage img:nth-child(2) {
+        position: absolute;
+        height: 140vh;
+        margin-top: -280px;
+    }
+/*Endin of Main*/
+/*Agent*/
+
+.wasteAgent .wasteAgentInformationcontact {
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-image: url('../Image/istockphoto-1132053804-612x612.jpg');
+    background-size: cover; /* Adjust to fit the container */
+    background-repeat: no-repeat; /* Prevent repetition */
+    background-position: center center; /* Center the image */
+    background-blend-mode: color-burn;
+    background-color: rgba(255, 255, 255, 0.637);
+}
+    .wasteAgent .wasteAgentInformationcontact h3 {
+        font-size: 50px;
+        margin-bottom: 40px;
+    }
+/*Not working as expected*/
+    .wasteAgent .wasteAgentInformationcontact a {
+        text-decoration: none;
+        text-align: center;
+        width:100px;
+        padding: 20px 100px;
+        background: #ffa500;
+        font-size: 14px;
+        color: white;
+        border-radius: 30px;
+    }
+.wasteAgentBody{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:20px;
+}
+/*Our services*/
+.Services {
+    display: flex;
+    width: 100%;
+    padding: 60px 0px;
+    align-items: center;
+    flex-direction: column;
+    margin-top: -300px;
+    background: white;
+}
+
+    .Services .servicesItems {
+        display: flex;
+        width: 900px;
+        justify-content: space-around;
+        flex-direction: row;
+        padding: 10px 10px;
+    }
+
+    .Services h2 {
+        font-size: 40px;
+        margin-bottom: 100px;
+    }
+
+#servicesBox {
+    width: 180px;
+    height: 180px;
+    border-radius: 20%;
+    display: flex;
+    text-align: center;
+    flex-direction:column;
+    margin-right: 5px;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0px 0px 10px #888888;
+    overflow-x: visible;
+}
+#servicesBox i{
+    height:70px;
+    margin-top:30px;
+    font-size:60px
+}
+    #servicesBox h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        padding: 5px;
+    }
+
+/*//wasteConnect*/
+.wasteConnection {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fcca6f;
+}
+
+    .wasteConnection .wasteConnectionContent {
+        width: 900px;
+        margin-left: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: #fff;
+    }
+
+        .wasteConnection .wasteConnectionContent h3 {
+            font-size: 50px;
+            color: #fff;
+            margin-bottom: 40px;
+            text-transform:capitalize;
+        }
+
+        .wasteConnection .wasteConnectionContent p {
+            font-size: 15px;
+            margin-top: -10px;
+            margin-bottom: 40px;
+        }
+
+        .wasteConnection .wasteConnectionContent ul {
+            margin-right: 200px;
+        }
+
+            .wasteConnection .wasteConnectionContent ul li {
+                font-size: 17px;
+                margin-bottom: 7px;
+            }
+
+        .wasteConnection .wasteConnectionContent .wasteConnectionButton button {
+            border-radius: 50px;
+            margin-top: 40px;
+            border-width: 0px;
+            padding: 12px 30px;
+            color: black;
+        }
+
+/*collectionDay*/
+.collectionDay {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 70vh;
+}
+
+    .collectionDay .collectionDayList {
+        width: 600px;
+        margin-right: 100px;
+    }
+
+        .collectionDay .collectionDayList h3 {
+            font-size: 30px;
+            width: 360px;
+            text-transform: capitalize;
+        }
+
+        .collectionDay .collectionDayList p {
+            font-size: 17px;
+            margin-top: 20px;
+            width: 500px;
+        }
+
+        .collectionDay .collectionDayList #collectionDayImage {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .collectionDay .collectionDayList #collectionDayImage2 {
+            width: 200px;
+            height: 60px;
+        }
+
+        .collectionDay .collectionDayList #collectionDayImage1 {
+            width: 300px;
+            height: 90px;
+            margin-left: -70px;
+        }
+
+/*Contact*/
+.contact {
+    width: 100%;
+    background-color: #ffa500;
+    height: 80vh;
+}
+
+    .contact .contactSpacing {
+        padding: 40px 150px;
+    }
+
+    .contact .conpanyName h3 {
+        font-size: 25px;
+        color: #fff;
+        margin-bottom: 40px;
+    }
+
+#contactInfo {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.contactStyling h4 {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.contactStyling div {
+    height: 130px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+    .contactStyling div a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+.contact .socails {
+    width: 50%;
+    height: 5px;
+    background-color: #fff;
+    margin-top: 40px;
+}
+
+.contact .privacy {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 60px;
+}
+
+    .contact .privacy img {
+        width: 200px;
+        height: 70px;
+    }
+
+.security {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+}
+
+    .security a {
+        color: #fff;
+        text-decoration: none;
+    }
+/*WasteSolution*/
+.wasteSolution {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+     height: 100vh; 
+    padding: 40px 0px;
+}
+
+    .wasteSolution .wasteSolutionIntro {
+        padding: 10px;
+    }
+
+        .wasteSolution .wasteSolutionIntro h3 {
+            font-size: 35px;
+            margin-bottom: 7px;
+            word-spacing: 30px;
+        }
+
+        .wasteSolution .wasteSolutionIntro p {
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+
+    .wasteSolution .wasteInformationcontact .businesstype {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        column-gap: 50px;
+        margin: 25px 0px;
+        padding: 10px;
+    }
+
+        .wasteSolution .wasteInformationcontact .businesstype .Hometype {
+            width: 350px;
+            height: 80px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50px;
+            box-shadow: 0px 0px 10px #888888;
+        }
+
+    .wasteSolution .wasteInformationcontact {
+        margin-top: 40px;
+        width: 100%;
+        background-image: url('../Image/istockphoto-1132053804-612x612.jpg');
+        background-size: cover; /* Adjust to fit the container */
+        background-repeat: no-repeat; /* Prevent repetition */
+        background-position: center center; /* Center the image */
+        background-blend-mode: color-burn;
+        background-color: rgba(255, 255, 255, 0.637);
+    }
+
+        .wasteSolution .wasteInformationcontact form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .wasteSolution .wasteInformationcontact form #Address {
+                display: flex;
+                flex-direction: column;
+                width: 60%;
+                margin-bottom: 30px;
+            }
+
+                .wasteSolution .wasteInformationcontact form #Address input {
+                    padding: 10px 50px;
+                    border-radius: 50px;
+                    border: 2px solid#ffa500;
+                    background-color: transparent;
+                }
+
+            .wasteSolution .wasteInformationcontact form #usersName {
+                width: 800px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                padding: 20px 0px;
+            }
+
+                .wasteSolution .wasteInformationcontact form #usersName label {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                }
+
+                .wasteSolution .wasteInformationcontact form #usersName input {
+                    padding: 10px 50px;
+                    border-radius: 50px;
+                    width: 250px;
+                    border: 1px solid#ffa500;
+                    background-color: transparent;
+                }
+
+            .wasteSolution .wasteInformationcontact form #submitAddress {
+                width: 100%;
+                margin: 40px 0px;
+                margin-bottom: 30px;
+                padding: 10px 50px;
+                border-radius: 50px;
+                border-width: 0px;
+                background-color: #ffa500;
+            }
+
+/*//AgentInfo*/
+.AgentInfo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 165, 0, 0.2);
+    /*height: 130vh;*/
+    height:auto;
+    padding: 50px 0px;
+}
+.AgentInfo .AgentHeader{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-around;
+}
+
+    .AgentInfo .AgentHeader h3{
+        font-size:40px;
+    }
+    .AgentInfo .AgentHeader .LearnMore a {
+        text-decoration:none;
+        margin-left: 30px;
+        font-size: 20px;
+    }
+        .AgentInfo .AgentHeader .LearnMore a:hover {
+            color: #ffa500;
+        }
+
+    .AgentInfo .AgentHeader .AgentName {
+        padding: 20px 30px;
+        background: #ffa500;
+        border-radius:50px;
+        color:white;
+        font-size:22px;
+        font-weight:700;
+    }
+        .AgentInfo .AgentHeader .AgentName:hover {
+            background: aqua;
+            transition: 500ms;
+        }
+    .AgentInfo .AgentBody{
+        width:100%;
+        margin-top:60px;
+        display:flex;
+        flex-direction:row;
+        justify-content:space-between;
+    }
+        .AgentInfo .AgentBody .AgentBodyOne {
+            display: flex;
+            padding: 30px 0px;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column;
+            width: 15%;
+            background: white;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            height: 60vh;
+        }
+        .AgentInfo .AgentBody .AgentBodyOne .AgentBodyInner1 {
+            background: #ffa500;
+        }
+            .AgentInfo .AgentBody .AgentBodyOne .AgentBodyInner {
+                display:flex;
+                margin-top: 30px;
+                align-items:center;
+                justify-content:center;
+                padding: 10px 30px;
+                border-radius:10px;
+            }
+                .AgentInfo .AgentBody .AgentBodyOne .AgentBodyInner i{
+                    font-size:25px;
+                    margin-right:20px;
+                }
+                .AgentInfo .AgentBody .AgentNotification {
+                    display: flex;
+                    padding: 30px 0px;
+                    justify-content: flex-start;
+                    align-items: center;
+                    flex-direction: column;
+                    width: 15%;
+                    background: white;
+                    border-top-left-radius: 50px;
+                    border-bottom-left-radius: 50px;
+                    height: 60vh;
+                }
+        .AgentInfo .AgentBody .AgentBodyTwo{
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            width:68%;
+            height:auto;
+            /*background-color:red;*/
+        }
+            .AgentInfo .AgentBody .AgentBodyTwo .AgentMessage{
+                width:80%;
+                margin:30px;
+                height: 110px;
+                background-color:lavenderblush;
+                border-radius:30px;
+                padding:50px 40px;
+                margin-bottom:30px
+            }
+            .AgentInfo .AgentBody .AgentBodyTwo .AgentMessage h3{
+                font-size:40px;
+                margin-bottom:20px;
+            }
+            .AgentInfo .AgentBody .AgentBodyTwo .RegisteredUSers {
+                width: 80%;
+                height: auto;
+                background-color: lavenderblush;
+                border-radius: 30px;
+                padding: 50px 40px;
+            }
+            .AgentInfo .AgentBody .AgentBodyTwo .RegisteredUSers h4{
+                font-size:20px;
+                font-weight:600;
+            }   /*In place of div put the .Icon class*/
+                .AgentInfo .AgentBody .AgentNotification .Icons {
+                width: 80px;
+                height: 80px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 40px;
+                background-color: grey;
+                border-radius: 30px;
+            }
+                    .AgentInfo .AgentBody .AgentNotification .Icons{
+                        font-size:35px;
+                    }
+                    /*.AgentInfo .AgentBody .AgentBodyTwo table{
+            width:500px;
+        }
+            .AgentInfo .AgentBody .AgentBodyTwo table tr {
+                width: 500px;
+            }
+        .AgentInfo .AgentBody .AgentBodyTwo table .tableHeader th {
+            width: 8%;
+            background-color: red;
+        }
+        .AgentInfo .AgentBody .AgentBodyTwo table .tableRow td {
+            width: 30px;
+            height:50px;
+            background-color: red;
+        }*/
+                    .AgentInfo .AgentBody .AgentBodyTwo .RegisteredUSers {
+                        /*width:100%;*/
+                        height: auto;
+                    }
+
+        .AgentInfo .AgentBody .AgentBodyTwo .RegisteredUSers table {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tableHeader, .tableRow {
+            width: 50%; /* Adjust the width as needed */
+            margin: auto;
+            border-collapse: collapse;
+        }
+
+    .tableHeader th, .tableRow td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+        width: 30px; /* Set width to 30px */
+    }
+
+    .tableHeader th {
+        background-color: #f2f2f2;
+        color: black;
+    }
+
+    .tableRow:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .tableRow:hover {
+        background-color: #f1f1f1;
+    }
+
+.tableInfo {
+    padding: 10px;
+    font-size: 14px;
+}
+
+
+/*LogIn*/
+
+.fieldHeader {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+}
+    .fieldHeader form {
+        display: flex;
+        flex-direction: column;
+        background-color: #ffa50073;
+        padding:40px 60px;
+        border-radius:10px;
+        height: 400px;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .fieldHeader form .label {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .fieldHeader form .label h3{
+        font-size:30px;
+        font-weight:700;
+        margin-bottom:20px;
+    }
+    .fieldHeader form .label p{
+        font-weight:600;
+        margin-bottom:10px;
+    }
+    .fieldHeader form .label p a{
+        color:white;
+        text-decoration:none;
+    }
+        .fieldHeader form .label p a:hover {
+            transition:1s;
+            color: #fc00ff;
+        }
+            .fieldHeader form .form-control {
+        border-width: 0px;
+        width: 400px;
+        height:40px;
+        border-radius:5px;
+        border-bottom-width: 2px;
+    }
+    .fieldHeader form .bsubmitField {
+        width: 400px;
+        padding: 20px 0px;
+        border-radius: 10px;
+        color: darkslateblue;
+        background-color: #ffa500;
+        border-width:0px;
+    }
+
+/*Connect wallet*/
+.walletDetails {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+    .walletDetails .connectWallet {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+        .walletDetails .connectWallet .ConnectWallet1{
+            font-size:30px;
+            margin-bottom:20px;
+        }
+        .walletDetails .connectWallet .ConnectWallet2 {
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+        .walletDetails .connectWallet #inputText {
+            width: 500px;
+            padding: 15px 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .walletDetails .connectWallet #connectButton {
+            width: 400px;
+            padding: 20px 0px;
+            border-radius: 10px;
+            background-color: #ffa500;
+            border-width: 0px;
+            font-size:20px;
+            color:white;
+        }
+            .walletDetails .connectWallet #connectButton:hover {
+                background-color: #d48a03;
+                color: darkslateblue;
+            }
+.modify{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+    .modify #tegaEmma {
+        width: 400px;
+        padding: 20px 0px;
+        border-radius: 10px;
+        background-color: #ffa500;
+        border-width: 0px;
+        font-size: 20px;
+        color: white;
+    }
+        .modify #tegaEmma:hover {
+            background-color: #d48a03;
+            color: darkslateblue;
+        }
+        /*Special Stying*/
+        /*         #SpecialStyling1 {
+    color: red;
+    width: 30px;
+    height: 40px;
+}*/
+        #SpecialStyling {
+        width: 50px; /* Adjust the width as needed */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+.walletDetails #GenerateWallet {
+    display: flex;
+    flex-direction:row;
+    align-items:center;
+    margin-top:20px;
+}
+.walletDetails #GenerateWallet p{
+    margin-right: 20px;
+    font-size:14px;
+}
+    .walletDetails #GenerateWallet #createButton {
+        padding: 20px 10px;
+        border-radius: 10px;
+        color: white;
+        background-color: #ffa500;
+        border-width: 0px;
+    }
+    .walletDetails #GenerateWallet #createButton:hover {
+        background-color: #d48a03;
+        color: darkslateblue;
+    }
+        .Message {
+            display: flex;
+            flex-direction: column;
+            width: auto;
+            align-items: center
+        }
+.sameSytle {
+    color: blue;
+    font-size: 20px;
+    font-weight: 700;
+}
+#Accept {
+    background-color: lawngreen;
+    border-width: 0px;
+    text-align:center;
+    border-radius:5px;
+    width:70px;
+}
+.hiddenx {
+    display: none;
+}
+.sellers{
+    display:flex;
+    width:100%;
+    flex-direction:column;
+    justify-content:space-around;
+    align-items:center;
+    height:40vh;
+    background:red;
+}
+.sellers  h3{
+    font-size:40px;
+    font-weight:700;
+}

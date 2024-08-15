@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - UberTrashInterface</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    @* <link rel="stylesheet" href="~/UberTrashInterface.styles.css" asp-append-version="true" /> *@
+    <link href="~/css/header.css" rel="stylesheet" />
+    <link href="~/css/requestservices.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+</head>
+<body>
+    @{
+
+        var SessionName = Context.Session.GetString("username") ?? "";
+        var PublicKey = Context.Session.GetString("publicKey_ForNew_USers") ?? "";
+    }
+
+    <div class="header">
+        <div class="logo">
+            <h3>Uber Trash</h3>
+        </div>
+        <div class="page_navigation">
+            <ul>
+                <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-area="" asp-controller="Agent" asp-action="EmailConfrimation">PickUp</a></li>
+                <li><a asp-area="" asp-controller="Agent" asp-action="LogIn">About</a></li>
+            </ul>
+        </div>
+        <div>
+            <a>@SessionName</a>
+        </div>
+        <div class="registration">
+
+
+            @if (PublicKey != "" || !(String.IsNullOrEmpty(PublicKey)))
+            {
+                <div id="text" class="ConnectMyWallet">@PublicKey</div>
+                <a class="ConnectMyWallet" asp-area="" asp-controller="Agent" asp-action="LogOut">LogOut</a>
+            }
+            else
+            {
+                <div id="connectButton"> </div>
+                <a asp-area="" id="ConnectMyWallet" asp-controller="Home" asp-action="Connect">Connect Wallet</a>
+                <a asp-area="" style="margin-left:20px;" id="ConnectMyWallet" asp-controller="Agent" asp-action="LogIn">LogIn</a>
+            }
+
+
+        </div>
+    </div>
+    @* <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">UberTrashInterface</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header> *@
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+@* 
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - UberTrashInterface - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer> *@
+    @* <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script> *@
+    @* <script src="~/js/newapp.js"></script>
+    <script src="~/js/app2.js"></script> *@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stellar-sdk/8.2.1/stellar-sdk.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    <script>
+        function showInput(publicKey) {
+            var inputField = document.getElementById('AgentSecertKey_' + publicKey);
+            inputField.style.display = 'block';
+        }
+        const textElements = document.querySelectorAll('#text');
+
+        textElements.forEach(textElement => {
+            const originalText = textElement.textContent;
+            const truncatedText = originalText.length > 10 ? originalText.slice(0, 10) + '...' : originalText;
+            textElement.textContent = truncatedText;
+        });
+
+        @*
+            function hideInput(publicKey) {
+            var inputField = document.getElementById('AgentSecertKey_' + publicKey);
+            inputField.style.display = 'none';
+            } *@
+    </script>
+</body>
+</html>

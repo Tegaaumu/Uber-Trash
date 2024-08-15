@@ -1,0 +1,49 @@
+﻿@model UberTrashInterface.Entities.EmailConfirmation
+
+@{
+    ViewData["Title"] = "EmailConfirmation";
+    var disvalue = (Model?.Email == null ? "disabled" : "");
+
+    var emailConfirmationMessage = ViewBag.EmailConfirmation == null ? "" : ViewBag.EmailConfirmation;
+}
+
+<hr />
+<div class="row">
+    <div class="fieldHeader">
+        <form asp-action="EmailConfrimation" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @if (!string.IsNullOrEmpty(emailConfirmationMessage))
+            {
+                <div>@emailConfirmationMessage</div>
+            }
+            <div class="label">
+                <h3>EmailConfirmation</h3>
+                <label asp-for="Email" value="@Model?.Email" class="control-label"></label>
+                <p>Your email address is: @ViewBag.Email</p>
+
+            </div>
+                <div class="connectField">
+                    <input asp-for="Email" class="form-control" type="hidden" />
+                    <input asp-for="UserName" class="form-control" type="hidden" />
+                    <input asp-for="Email" class="form-control" disabled />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            <div class="passwordField">
+                <label asp-for="Code" class="control-label"></label>
+                <input asp-for="Code" class="form-control" placeholder="Place your code"/>
+                <span asp-validation-for="Code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="bsubmitField" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="Home" asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

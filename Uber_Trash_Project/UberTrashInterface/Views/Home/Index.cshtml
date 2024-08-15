@@ -1,0 +1,381 @@
+﻿@using UberTrashInterface.Entities
+@{
+    ViewData["Title"] = "Home Page";
+    var SessionName = ViewBag.SessionName == null ? null : ViewBag.SessionName;
+    var PublicKey = ViewBag.PublicKey == null ? "" : ViewBag.PublicKey;
+    //For the stellar field
+    var sessionName = ViewBag.SessionName;
+    var publicKey = ViewBag.PublicKey;
+    var userSellers = ViewBag.UserSellers as List<UserSellers>;
+    var SingleUser = ViewBag.UserDetails as UserSellers;
+}
+
+<main class="main">
+    <p id="status"></p>
+    <p id="accountInfo"></p>
+
+    <div class="company_solgan">
+        <div id="slogan">
+            <h2>Trash faster </h2>
+            <h2 id="secound">with Uber Trash</h2>
+            <p>Request to sell your cans and get it picked in minute and get paid in solana</p>
+        </div>
+        <div class="userLocation">
+            <input type="text" id="location" placeholder="Enter your location">
+            <div class="userLocationButtons">
+                <button class="signup">See price</button>
+                <button class="signup">Schedule pickup</button>
+            </div>
+        </div>
+    </div>
+    <div class="companyImage">
+        <img src="./Image/trash-removebg-preview.png" alt="trashing items">
+        <img src="./Image/stande-removebg-preview.png" alt="oval">
+    </div>
+</main>
+
+
+<div class="Services">
+    <h2>Our Services</h2>
+    <div class="servicesItems">
+        <div id="servicesBox">
+            <i class="fa-solid fa-trash"></i>
+            <h3>Curbside Trash PickUp</h3>
+        </div>
+        <div id="servicesBox">
+            <i class="fa-solid fa-trash"></i>
+            <h3>Bulk Trash Removal </h3>
+        </div>
+        <div id="servicesBox">
+            <i class="fa-solid fa-trash"></i>
+            <h3>Special Event Waste Removal</h3>
+        </div>
+        <div id="servicesBox">
+            <i class="fa-solid fa-trash"></i>
+            <h3>On-Demand Trash PickUp</h3>
+        </div>
+    </div>
+</div>
+
+<div class="RequestPickup">
+    <div class="RequestLayout">
+        <div class="RequestLayoutRight">
+            <div>
+                <h3 id="requestTitle">Make your Environment Plastic Free</h3>
+                @* <p id="requestContent">Residental pickup services to enable easy disposal of waste product.</p> *@
+            </div>
+
+            @* <a id="learnMore" href="#">Learn More</a> *@
+        </div>
+        <div class="RequestLayoutLeft">
+            <img src="./Image/istockphoto-1272212047-612x612-removebg-preview.png" alt="place another image here">
+        </div>
+    </div>
+</div>
+@* 
+            <div>@PublicKey</div>
+            <li><a asp-area="" asp-controller="Agent" asp-action="Post">Form</a></li>
+            <li><a asp-area="" asp-controller="Agent" asp-action="LogOut">LogOut</a></li> *@
+       
+@if (PublicKey != "" || !(String.IsNullOrEmpty(PublicKey)))
+{
+    <div>@ViewBag.Message</div>
+    <div class="wasteAgent">
+        <div class="wasteAgentInformationcontact">
+            <div class="wasteAgentBody">
+                <h3>Become a PickUp Agent</h3>
+                <a asp-area="" asp-controller="Agent" asp-action="Post">Register</a>
+            </div>
+            <div class="wasteAgentBody">
+                    <h3>Become a User and start selling</h3>
+                    <a asp-area="" asp-controller="Agent" asp-action="UserSellers">Sell</a>
+            </div>
+        </div>
+    </div>
+}
+    <div class="wasteConnection">
+        <div class="wasteConnectionContent">
+            <h3>Start your waste collection garbage PickUp today</h3>
+            <p>Get information about how companies leverage</p>
+            <ul>
+                <li>Residental PickUp</li>
+                <li>Commercial PickUp</li>
+                <li>Scheduled PickUp</li>
+                <li>Bulk PickUp</li>
+            </ul>
+            <div class="wasteConnectionButton">
+                <button>Get Started</button>
+            </div>
+        </div>
+        <img src="./Image/istockphoto-1303126667-612x612.jpg" alt="Trash Bin">
+    </div>
+
+
+    <div class="collectionDay">
+        <div class="collectionDayList">
+            <h3>Never Miss our collection day again with our app</h3>
+            <p>Experiences the conviniences of managing your waste collection right from the comfort of your home with our WasteConnection Mobile App.</p>
+            <div id="collectionDayImage">
+                <img id="collectionDayImage1" src="./Image/App store.png" alt="App store">
+                <img id="collectionDayImage2" src="./Image/Google play.png" alt="Google Play">
+            </div>
+        </div>
+</div>
+@if(@SessionName != null){
+
+    <div class="AgentInfo">
+    <div class="AgentHeader">
+        <h3>Uber Trash</h3>
+        <div class="LearnMore">
+            <a>How it works</a>
+            <a>FAQ</a>
+        </div>
+        <a class="AgentName">My Agent Name @SessionName</a>
+    </div>
+    <div class="AgentBody">
+        <div class="AgentBodyOne">
+            <div class="AgentBodyInner AgentBodyInner1">
+                <i class="fa-solid fa-user"></i>
+                <h3>Dashboard</h3>
+            </div >
+            <div class="AgentBodyInner">
+                <i class="fa-solid fa-user"></i>
+                <h3>Profile</h3>
+            </div>
+            <div class="AgentBodyInner">
+                <i class="fa-solid fa-user"></i>
+                <h3>Community</h3>
+            </div>
+            <div class="AgentBodyOne">
+                <i class="fa-duotone fa-solid fa-seal-question"></i>
+                <h3>FAQs</h3>
+            </div>
+        </div>
+        <div class="AgentBodyTwo">
+            <div class="AgentMessage"><h3>Hello Agent Welcome To Your</h3> <h3> Dashboard</h3></div>
+ <div class="RegisteredUSers">
+                <h4>Application Status</h4>
+                    @* The table *@
+     <div>
+    <h3>User Sellers</h3>
+                    @if (userSellers != null && userSellers.Any())
+    {
+    <table>
+        <tr class="tableHeader">
+                <th id="SpecialStyling1">PublicKey</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Staus</th>
+                <th>Number of Items</th>
+                <th>Process</th>
+                <th>Last Updated</th>
+                <th>Successful</th>
+        </tr>
+        @foreach (var seller in userSellers)
+        {
+        <tr class="tableRow">
+                <form asp-controller="Home" asp-action="Index" method="post">
+                    <input type="hidden" name="PublicKey" value="@seller.PublicKey" />
+                    <input type="hidden" name="Phone_Number" value="@seller.Phone_Number" />
+                    <input type="hidden" name="Address" value="@seller.Address" />
+                    <input type="hidden" name="NumberOfItemsToBeOrdered" value="@seller.NumberOfItemsToBeOrdered" />
+                    @* <input id="AgentSecertKey" name="AgentSecertKey" value="@seller.AgentSecertKey" /> *@
+                                        <td class="tableInfo" id="text">@seller.PublicKey</td>
+                         <td class="tableInfo">@seller.Phone_Number</td>
+                                        <td class="tableInfo" id="text">@seller.Address</td>
+                         <td class="tableInfo">Staus</td>
+                         <td class="tableInfo">@seller.NumberOfItemsToBeOrdered</td>
+                    @if (@seller.Agent != null)
+                    {
+                             @if (@seller.Agent != null &&  seller.Received == true)
+                            {
+                                <td class="tableInfo"><input value="Completed" id="Accept"></td>
+                            }
+                           else{                                 
+                            <td class="tableInfo"><input value="Processing" id="Accept" style="background-color:cornflowerblue"></td>
+                            }
+                    }
+                    else
+                    {
+
+                          <td class="tableInfo"><input value="Accept" id="Accept" type="submit"></td>
+                    }
+                    @* <a asp-controller="Agent" asp-action="SendFund" id="Paided_@seller.PublicKey" onmouseover="showInput('@seller.PublicKey')" onmouseout="hideInput('@seller.PublicKey')">Paided</a>
+                    <input id="AgentSecertKey_@seller.PublicKey" name="AgentSecertKey" value="@seller.AgentSecertKey" onmouseover="showInput('@seller.PublicKey')" onmouseout="hideInput('@seller.PublicKey')" style="display:none;" />
+                    *@
+                </form>
+
+                <!-- Form for Paided action -->
+                <form id="form_@seller.PublicKey" asp-controller="Agent" asp-action="SendFund" method="post">
+                    <input type="hidden" name="PublicKey" value="@seller.PublicKey" />
+                    <input type="hidden" name="Phone_Number" value="@seller.Phone_Number" />
+                    <input type="hidden" name="Address" value="@seller.Address" />
+                    <input type="hidden" name="NumberOfItemsToBeOrdered" value="@seller.NumberOfItemsToBeOrdered" />
+                     <div id="AgentSecertKey_@seller.PublicKey" class="hiddenx">
+                        <label>Enter Your SecertKey</label>
+                        <input name="AgentSecertKey" value="@seller.AgentSecertKey"/>
+                    </div>
+
+                         <td class="tableInfo">Last Updated</td>
+                         @if(seller.Received == true){
+                             <td><p>Recieved</p></td>
+                         }else{
+                                        <td class="tableInfo">
+                                            <input id="Paided_@seller.PublicKey" value="Paided" type="submit"
+                                                   onmouseover="showInput('@seller.PublicKey')">
+                                        </td>
+                         }
+                </form>
+        </tr>
+        }
+    </table>
+    }
+    else
+    {
+    <h3>Loading list of all available user tot the screen for Admin.....</h3>
+    <p>No sellers found.</p>
+    }
+
+        @if (userSellers != null && userSellers.Any())
+        {
+
+                            <table>
+
+                                <tr class="tableHeader">
+                                    <th>Public Keys</th>
+                                    <th>Agent Name</th>
+                                    <th>Phone NUmber</th>
+                                    <th>Address</th>
+                                    <th>Items Number</th>
+                                    <th>Status</th>
+                                </tr>
+                                <div> This field contain details of @sessionName</div>
+            @foreach (var seller in userSellers)
+            {
+            @if (seller.Agent == sessionName)
+                                    {
+                                        <tr class="tableRow">
+                    <form asp-controller="Home" asp-action="Index" method="post">
+                        <input type="hidden" name="PublicKey" value="@seller.PublicKey" />
+                        <input type="hidden" name="Phone_Number" value="@seller.Phone_Number" />
+                        <input type="hidden" name="Address" value="@seller.Address" />
+                        <input type="hidden" name="NumberOfItemsToBeOrdered" value="@seller.NumberOfItemsToBeOrdered" />
+                                            <td class="tableInfo" id="text">@seller.PublicKey<br /></td>
+                       <td class="tableInfo" id="text"> @seller.Phone_Number<br /></td>
+                       <td class="tableInfo" id="text">@seller.Address<br /></td>
+                       <td class="tableInfo" id="text"> @seller.NumberOfItemsToBeOrdered<br /></td>
+                        @if (@seller.Agent != null)
+                        {
+                        <td class="tableInfo"><input value="Processing" id="Accept" type="submit"></td>
+                        }
+                        else
+                        {
+                            <td class="tableInfo"> <input value="Accept" id="Accept" type="submit"></td>
+                        }
+                        <td class="tableInfo"> <a id="Paided">Paided</a> </td>
+                    </form>
+                                            <!-- Add other properties as needed -->
+                                        </tr>
+            }
+            }
+
+     </table>
+        }
+</div>
+                    @* The table *@
+</div>
+ </div>
+        <div class="AgentNotification">
+            <div class="Icons">
+            <i class="fa-solid fa-bell"></i>
+            </div>
+            <div class="Icons">
+            <i class="fa-solid fa-envelope"></i>
+            </div>
+        </div>
+</div>
+</div>
+
+}
+@*sellers Inoformation *@
+@if (SingleUser != null)
+{
+    <div class="sellers">
+    <h3>Current User Details</h3>
+    <table>
+            <tr class="tableHeader">
+            <th>Public Keys</th>
+            <th>Agent Name</th>
+            <th>Phone NUmber</th>
+            <th>Address</th>
+            <th>Items Number</th>
+        </tr>
+        <tr class="tableRow">
+            <td class="tableInfo" id="text">@SingleUser.PublicKey</td>
+            @{
+                var AgentName = (SingleUser.Agent == null) ? "Agent not available" : SingleUser.Agent;
+            }
+            <td>@AgentName</td>
+            <td class="tableInfo" >@SingleUser.Phone_Number</td>
+            <td class="tableInfo" id="text">@SingleUser.Address</td>
+            <td class="tableInfo" >@SingleUser.NumberOfItemsToBeOrdered</td>
+        </tr>
+        </table>
+    </div>
+}
+
+
+@*sellers Inoformation *@
+
+    <div class="contact">
+        <div class="contactSpacing">
+            <div class="conpanyName">
+                <h3>Uber Trash</h3>
+            </div>
+            <div id="contactInfo">
+                <div id="customerSupport" class="contactStyling">
+                    <h4>Customer Support</h4>
+                    <div>
+                        <a href="#">Pay My Bills</a>
+                        <a href="#">Pick Up Schdule</a>
+                        <a href="#">I missed pickup</a>
+                        <a href="#">Contact Us</a>
+                    </div>
+                </div>
+                <div id="company" class="contactStyling">
+                    <h4>Company</h4>
+                    <div>
+                        <a href="#">About Us</a>
+                        <a href="#">Executive Offices</a>
+                        <a href="#">Community Support</a>
+                        <a href="#">Blog</a>
+                    </div>
+                </div>
+                <div id="moreInfo" class="contactStyling">
+                    <h4>More Info</h4>
+                    <div>
+                        <a href="#">Investor</a>
+                        <a href="#">Employment</a>
+                        <a href="#">Substainability</a>
+                        <a href="#">FAQs</a>
+                    </div>
+                </div>
+            </div>
+            <div class="socails">
+                <span></span>
+            </div>
+            <div class="privacy">
+                <div>
+                    <img src="./Image/App store.png" alt="App Store">
+                    <img src="./Image/Google play.png" alt="Google Play">
+                </div>
+                <div class="security">
+                    <a href="#">Privacy</a>
+                    <a href="#">Accessibility</a>
+                    <a href="#">Terms</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>

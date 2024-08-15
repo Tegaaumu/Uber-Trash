@@ -1,0 +1,95 @@
+﻿<div>
+    <h3>User Sellers</h3>
+    @if (userSellers != null && userSellers.Any())
+    {
+    <ul>
+        @foreach (var seller in userSellers)
+        {
+        <li>
+            <div>
+                <form asp-controller="Home" asp-action="Index" method="post">
+                    <input type="hidden" name="PublicKey" value="@seller.PublicKey" />
+                    <input type="hidden" name="Phone_Number" value="@seller.Phone_Number" />
+                    <input type="hidden" name="Address" value="@seller.Address" />
+                    <input type="hidden" name="NumberOfItemsToBeOrdered" value="@seller.NumberOfItemsToBeOrdered" />
+                    @* <input id="AgentSecertKey" name="AgentSecertKey" value="@seller.AgentSecertKey" /> *@
+                    <strong>PublicKey:</strong> @seller.PublicKey<br />
+                    <strong>Phone:</strong> @seller.Phone_Number<br />
+                    <strong>Address:</strong> @seller.Address<br />
+                    <strong>Number of Items ordered:</strong> @seller.NumberOfItemsToBeOrdered<br />
+                    @if (@seller.Agent != null)
+                    {
+                    <input value="Processing" id="Accept" type="submit">
+                    }
+                    else
+                    {
+
+                    <input value="Accept" id="Accept" type="submit">
+                    }
+                    @* <a asp-controller="Agent" asp-action="SendFund" id="Paided_@seller.PublicKey" onmouseover="showInput('@seller.PublicKey')" onmouseout="hideInput('@seller.PublicKey')">Paided</a>
+                    <input id="AgentSecertKey_@seller.PublicKey" name="AgentSecertKey" value="@seller.AgentSecertKey" onmouseover="showInput('@seller.PublicKey')" onmouseout="hideInput('@seller.PublicKey')" style="display:none;" />
+                    *@
+                </form>
+
+                <!-- Form for Paided action -->
+                <form id="form_@seller.PublicKey" asp-controller="Agent" asp-action="SendFund" method="post">
+                    <input type="hidden" name="PublicKey" value="@seller.PublicKey" />
+                    <input type="hidden" name="Phone_Number" value="@seller.Phone_Number" />
+                    <input type="hidden" name="Address" value="@seller.Address" />
+                    <input type="hidden" name="NumberOfItemsToBeOrdered" value="@seller.NumberOfItemsToBeOrdered" />
+                    <input id="AgentSecertKey_@seller.PublicKey" name="AgentSecertKey" value="@seller.AgentSecertKey" style="display:none;" />
+                    <input id="Paided_@seller.PublicKey" value="Paided" type="submit" onmouseover="showInput('@seller.PublicKey')" onmouseout="hideInput('@seller.PublicKey')" onclick="submitForm('@seller.PublicKey')">
+                </form>
+                <!-- Add other properties as needed -->
+            </div>
+        </li>
+        }
+    </ul>
+    }
+    else
+    {
+    <h3>Loading list of all available user tot the screen for Admin.....</h3>
+    <p>No sellers found.</p>
+    }
+    <div>
+
+        @if (userSellers != null && userSellers.Any())
+        {
+        <ul>
+            @foreach (var seller in userSellers)
+            {
+            @if (seller.Agent == sessionName)
+            {
+            <h1> This field contain details of @sessionName</h1>
+            <li>
+                <div>
+                    <form asp-controller="Home" asp-action="Index" method="post">
+                        <input type="hidden" name="PublicKey" value="@seller.PublicKey" />
+                        <input type="hidden" name="Phone_Number" value="@seller.Phone_Number" />
+                        <input type="hidden" name="Address" value="@seller.Address" />
+                        <input type="hidden" name="NumberOfItemsToBeOrdered" value="@seller.NumberOfItemsToBeOrdered" />
+                        <strong>PublicKey:</strong> @seller.PublicKey<br />
+                        <strong>Phone:</strong> @seller.Phone_Number<br />
+                        <strong>Address:</strong> @seller.Address<br />
+                        <strong>Number of Items ordered:</strong> @seller.NumberOfItemsToBeOrdered<br />
+                        @if (@seller.Agent != null)
+                        {
+                        <input value="Processing" id="Accept" type="submit">
+                        }
+                        else
+                        {
+
+                        <input value="Accept" id="Accept" type="submit">
+                        }
+                        <a id="Paided">Paided</a>
+                    </form>
+                    <!-- Add other properties as needed -->
+                </div>
+            </li>
+            }
+            }
+        </ul>
+        }
+    </div>
+</div>
+

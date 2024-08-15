@@ -1,0 +1,45 @@
+﻿
+<div class="Message">
+
+<div class="sameSytle" id="outputDiv"></div>
+<div class="sameSytle" id="statusElement"></div>
+<div class="sameSytle" id="accountInfoElement"></div>
+</div>
+
+<div class="walletDetails">
+    <div class="connectWallet">
+        <h3 class="ConnectWallet1">Connect Wallet</h3>
+        <p class="ConnectWallet2">If you have an already existing account please connect your wallet.</p>
+        <div class="modify">
+            <input type="text" id="inputText" placeholder="Enter text here">
+            <button id="tegaEmma">Connect to Stellar</button>
+        </div>
+    </div>
+    <div id="GenerateWallet">
+        <p>If you dont have an exiting wallet please click the link below to auto matically generate your wallet.</p>
+        <button id="createButton">Generate Wallet</button>
+    </div>
+    <div>
+        <a asp-controller="Home" asp-action="Index">Back to Home</a>
+    </div>
+</div>
+<script src="~/js/NewApp.js"></script>
+<script src="~/js/app2.js"></script>
+@* 
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('tegaEmma').addEventListener('click', async () => {
+            const userInput = prompt('Please enter a value:');
+
+            if (userInput) {
+                console.log('User input:', userInput);
+                // You can add additional logic here to handle the user input
+                // For example, sending the input to a server or updating the UI
+            } else {
+                console.log('User cancelled the prompt.');
+            }
+        });
+
+    });
+
+</script> *@

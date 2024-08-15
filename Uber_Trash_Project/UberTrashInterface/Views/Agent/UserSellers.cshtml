@@ -1,0 +1,46 @@
+﻿@model UberTrashInterface.Entities.UserSellers
+
+@{
+    ViewData["Title"] = "UserSellers";
+}
+<div class="row">
+    <div class="fieldHeader">
+        <form asp-action="UserSellers">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div>@ViewBag.Message </div>
+            <div>
+                <span asp-validation-for="Address" class="text-danger"></span>
+                <span asp-validation-for="Phone_Number" class="text-danger"></span>
+                <span asp-validation-for="NumberOfItemsToBeOrdered" class="text-danger"></span>
+            </div>
+            <div class="label">
+                <h3>Sell Items</h3>
+                <p>Welcome! You can sell your various can and an agent will get back to you..</p>
+                <p>Did you <a>forget your password</a></p>
+            </div>
+            <div class="form-group">
+                @* <label asp-for="Address" class="control-label"></label> *@
+                <input asp-for="Address" class="form-control" placeholder="Address" />
+            </div>
+            <div class="connectField">
+                @* <label asp-for="Phone_Number" class="control-label"></label> *@
+                <input asp-for="Phone_Number" class="form-control" placeholder="Phone number" />
+            </div>
+            <div class="connectField">
+                @* <label asp-for="NumberOfItemsToBeOrdered" class="control-label"></label> *@
+                <input asp-for="NumberOfItemsToBeOrdered" class="form-control" placeholder="Number of items" />
+            </div>
+            <div>
+                <input type="submit" value="Create" class="bsubmitField" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="Home" asp-action="Index">Back to Home</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

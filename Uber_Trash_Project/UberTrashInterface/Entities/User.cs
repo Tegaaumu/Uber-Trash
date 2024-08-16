@@ -9,8 +9,10 @@ namespace UberTrashInterface.Entities
         [Required]
         public string Username { get; set; }
         [Required]
+        [DataType(DataType.EmailAddress, ErrorMessage ="enter a valid email address")]
         public string Email { get; set; }
         [Required]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
         [Required]
         [DisplayName("Phone Number")]

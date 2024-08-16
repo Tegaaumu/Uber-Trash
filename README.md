@@ -18,7 +18,7 @@ Ubertrash is an innovative application that allows users to book Plastic-Can Rid
 
 Find our Demo here: [Design](https://www.figma.com/design/VM28C1UloJpZDjNm5Cxbcp/web3?node-id=0-1&t=lYKGqdyBjEQynkVe-0)
 
-Github Repo: [GitHub](https://github.com/Tegaaumu/UberTrash.git](https://github.com/Tegaaumu/Uber-Trash/tree/830f02e18ce41eca385f9413b054b0333efe1bfc/Uber_Trash_Project)
+Github Repo: [Private_GitHub_Repo](https://github.com/Tegaaumu/Uber-Trash/tree/830f02e18ce41eca385f9413b054b0333efe1bfc/Uber_Trash_Project)
 
 Deployed Program:  
 

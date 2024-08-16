@@ -130,7 +130,8 @@ namespace UberTrashInterface.Controllers
                 ViewBag.Message = "Transaction failed maybe due to wrong secret key";
 
             }
-            return RedirectToAction("Index", "Home");
+            string url = Url.Action("Index", "Home") + "#AgentInfo";
+            return Redirect(url);
 
         }
 
@@ -182,7 +183,7 @@ namespace UberTrashInterface.Controllers
             }
             else
             {
-                ViewBag.Message = "Invalid Login, Check your username or email";
+                ViewBag.Message = "Invalid Login Details Or Poor internet connection";
                 return View();
             }
             return View();

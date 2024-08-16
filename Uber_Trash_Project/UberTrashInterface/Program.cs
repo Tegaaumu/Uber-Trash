@@ -5,7 +5,8 @@ using UberTrashInterface.Entities;
 using UberTrashInterface.Services;
 
 var builder = WebApplication.CreateBuilder(args);
-
+var Configuration = builder.Configuration;
+var tega = Configuration["UniqueKeys:Username"];
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddSession();
@@ -19,8 +20,8 @@ builder.Services.AddHttpClient<IUberTrashServices, UberTrashServices>(client =>
     client.BaseAddress = new Uri("http://tegaproject-001-site1.atempurl.com/");
 
     // Set authorization header for all clients
-    string username = "11190513";
-    string password = "60-dayfreetrial";
+    string username = Configuration["UniqueKeys:Username"]!;
+    string password = Configuration["UniqueKeys:UserPass"]!;
     string combined = username + ":" + password;
     string base64Encoded = Convert.ToBase64String(Encoding.ASCII.GetBytes(combined));
     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", base64Encoded);
@@ -30,8 +31,8 @@ builder.Services.AddHttpClient<IStellarConnection, StellarConnection>(client =>
     client.BaseAddress = new Uri("http://tegaproject-001-site1.atempurl.com/");
 
     // Set authorization header for all clients
-    string username = "11190513";
-    string password = "60-dayfreetrial";
+    string username = Configuration["UniqueKeys:Username"]!;
+    string password = Configuration["UniqueKeys:UserPass"]!;
     string combined = username + ":" + password;
     string base64Encoded = Convert.ToBase64String(Encoding.ASCII.GetBytes(combined));
     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", base64Encoded);

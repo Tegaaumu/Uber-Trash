@@ -48,26 +48,35 @@ namespace UberTrashInterface.Services
         }
         public async Task<User> LogIn(LogIn logIn)
         {
+            try
+            {
            var response = await _httpClient.PostAsJsonAsync<LogIn>("api/Account/LogIn", logIn);// Check if the response indicates success
+                var responseContent = await response.Content.ReadAsStringAsync();
+                if (response.IsSuccessStatusCode)
+                {
+
+                    // Deserialize the content into a LogIn object
+                    var result = JsonConvert.DeserializeObject<User>(responseContent);
+
+                    // Return the deserialized LogIn object
+                    return result;
+                }
+                else
+                {
+                    // Handle the error (e.g., log it, throw an exception, return null, etc.)
+                    // You could throw an exception or return a default value like null
+                    Console.WriteLine(($"Error: {response.ReasonPhrase}. Details: {responseContent}"));
+                    return null;
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine($"error Message {ex.Message}");
+            }
+            return null;
 
             // Read the content as a string
-            var responseContent = await response.Content.ReadAsStringAsync(); 
-            if (response.IsSuccessStatusCode)
-            {
-
-                // Deserialize the content into a LogIn object
-                var result = JsonConvert.DeserializeObject<User>(responseContent);
-
-                // Return the deserialized LogIn object
-                return result;
-            }
-            else
-            {
-                // Handle the error (e.g., log it, throw an exception, return null, etc.)
-                // You could throw an exception or return a default value like null
-                Console.WriteLine(($"Error: {response.ReasonPhrase}. Details: {responseContent}"));
-                return null;
-            }
+           
         }
 
 

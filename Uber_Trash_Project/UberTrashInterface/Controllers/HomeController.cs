@@ -59,7 +59,8 @@ namespace UberTrashInterface.Controllers
                 HttpContext.Session.SetString("publicKey_ForNew_USers", userSeller.PublicKey);
                 HttpContext.Session.SetString("phoneNumber", userSeller.Phone_Number);
                 _logInUser1 = userSeller;
-                ViewBag.Message = "Logged In successfully";
+                ViewBag.Message = HttpContext.Session.GetString("Successful");
+                ;
                 return RedirectToAction("Index", "Home");
             }
             ViewBag.Message = "The information entered is incorrect";
@@ -73,16 +74,18 @@ namespace UberTrashInterface.Controllers
             var result = await _UberTrashServices.UpdateUSerSellerAgent(userSellers);
             if (result)
             {
-                ViewBag.Message = "Successful";
+                HttpContext.Session.SetString("Successful", "Successful");
             }
             else
             {
-                ViewBag.Message = "Not Successful";
+                HttpContext.Session.SetString("Successful", "Not Successful");
             }
-            return RedirectToAction("Index", "Home");
+            string url = Url.Action("Index", "Home") + "#AgentInfo";
+            return Redirect(url);
+            //return RedirectToAction("Index", "Home");
         }
 
-            public IActionResult Privacy()
+        public IActionResult Privacy()
         {
             return View();
         }

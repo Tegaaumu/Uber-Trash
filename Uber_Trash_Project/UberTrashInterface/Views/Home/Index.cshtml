@@ -79,7 +79,6 @@
        
 @if (PublicKey != "" || !(String.IsNullOrEmpty(PublicKey)))
 {
-    <div>@ViewBag.Message</div>
     <div class="wasteAgent">
         <div class="wasteAgentInformationcontact">
             <div class="wasteAgentBody">
@@ -123,7 +122,7 @@
 </div>
 @if(@SessionName != null){
 
-    <div class="AgentInfo">
+    <div class="AgentInfo" id="AgentInfo">
     <div class="AgentHeader">
         <h3>Uber Trash</h3>
         <div class="LearnMore">
@@ -173,7 +172,8 @@
         </tr>
         @foreach (var seller in userSellers)
         {
-        <tr class="tableRow">
+         <tr class="tableRow">
+            <div>@ViewBag.Message</div>
                 <form asp-controller="Home" asp-action="Index" method="post">
                     <input type="hidden" name="PublicKey" value="@seller.PublicKey" />
                     <input type="hidden" name="Phone_Number" value="@seller.Phone_Number" />
@@ -189,10 +189,10 @@
                     {
                              @if (@seller.Agent != null &&  seller.Received == true)
                             {
-                                <td class="tableInfo"><input value="Completed" id="Accept"></td>
+                                <td class="tableInfo"><span id="Accept" style="background-color:green">Completed</span></td>
                             }
                            else{                                 
-                            <td class="tableInfo"><input value="Processing" id="Accept" style="background-color:cornflowerblue"></td>
+                                 <td class="tableInfo"> <span id="Accept" style="background-color:cornflowerblue; padding:10px 30px">Processing</span></td>
                             }
                     }
                     else
@@ -240,39 +240,31 @@
         {
 
                             <table>
-
-                                <tr class="tableHeader">
-                                    <th>Public Keys</th>
-                                    <th>Agent Name</th>
-                                    <th>Phone NUmber</th>
-                                    <th>Address</th>
-                                    <th>Items Number</th>
-                                    <th>Status</th>
-                                </tr>
-                                <div> This field contain details of @sessionName</div>
             @foreach (var seller in userSellers)
             {
             @if (seller.Agent == sessionName)
                                     {
+
+
+            <tr class="tableHeader">
+            <th>Public Keys</th>
+            <th>Phone Number</th>
+                                            <th>Address</th>
+                <th>Items Number</th>
+                <th>Payment Status</th>
+                </tr>
+                                        <div> This field contain details of @sessionName</div>
                                         <tr class="tableRow">
                     <form asp-controller="Home" asp-action="Index" method="post">
-                        <input type="hidden" name="PublicKey" value="@seller.PublicKey" />
-                        <input type="hidden" name="Phone_Number" value="@seller.Phone_Number" />
-                        <input type="hidden" name="Address" value="@seller.Address" />
-                        <input type="hidden" name="NumberOfItemsToBeOrdered" value="@seller.NumberOfItemsToBeOrdered" />
                                             <td class="tableInfo" id="text">@seller.PublicKey<br /></td>
                        <td class="tableInfo" id="text"> @seller.Phone_Number<br /></td>
                        <td class="tableInfo" id="text">@seller.Address<br /></td>
-                       <td class="tableInfo" id="text"> @seller.NumberOfItemsToBeOrdered<br /></td>
-                        @if (@seller.Agent != null)
-                        {
-                        <td class="tableInfo"><input value="Processing" id="Accept" type="submit"></td>
-                        }
-                        else
-                        {
-                            <td class="tableInfo"> <input value="Accept" id="Accept" type="submit"></td>
-                        }
-                        <td class="tableInfo"> <a id="Paided">Paided</a> </td>
+                                            <td class="tableInfo">@seller.NumberOfItemsToBeOrdered</td>
+                                            @{
+
+                                                    var paymentMade = (seller.Received == true) ? "Paided" : "Not been paided";
+                                            }
+                                            <td class="tableInfo"> <a>@paymentMade</a></td>
                     </form>
                                             <!-- Add other properties as needed -->
                                         </tr>
@@ -306,19 +298,22 @@
             <tr class="tableHeader">
             <th>Public Keys</th>
             <th>Agent Name</th>
-            <th>Phone NUmber</th>
+            <th>Phone Number</th>
             <th>Address</th>
-            <th>Items Number</th>
+                <th>Items Number</th>
+                <th>Payment Status</th>
         </tr>
         <tr class="tableRow">
             <td class="tableInfo" id="text">@SingleUser.PublicKey</td>
             @{
-                var AgentName = (SingleUser.Agent == null) ? "Agent not available" : SingleUser.Agent;
+                    var AgentName = (SingleUser.Agent == null) ? "Agent not available" : SingleUser.Agent;
+                    var paymentMade = (SingleUser.Received == true) ? "Paided" : "Not been paided";
             }
             <td>@AgentName</td>
             <td class="tableInfo" >@SingleUser.Phone_Number</td>
             <td class="tableInfo" id="text">@SingleUser.Address</td>
-            <td class="tableInfo" >@SingleUser.NumberOfItemsToBeOrdered</td>
+                <td class="tableInfo">@SingleUser.NumberOfItemsToBeOrdered</td>
+                <td class="tableInfo">@paymentMade</td>
         </tr>
         </table>
     </div>

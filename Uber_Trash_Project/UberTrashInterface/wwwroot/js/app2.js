@@ -4,6 +4,7 @@
     document.getElementById('createButton').addEventListener('click', async () => {
         //const statusElement = document.getElementById('status');
         const statusElement = document.getElementById('statusElement');
+        const outputDiv = document.getElementById('outputDiv');
         const accountInfoElement = document.getElementById('accountInfoElement');
 
         try {
@@ -20,6 +21,7 @@
             const server = new StellarSdk.Server('https://horizon-testnet.stellar.org');
             const account = await server.loadAccount(pair.publicKey());
             statusElement.textContent = 'Connected to Stellar account: ' + pair.publicKey();
+            outputDiv.textContent = "Your wallet Ssecert Key: " + pair.secret();
             console.log('Account details:', account);
 
             // Display account balances

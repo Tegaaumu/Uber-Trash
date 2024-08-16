@@ -569,7 +569,7 @@
             justify-content: flex-start;
             align-items: center;
             flex-direction: column;
-            width: 15%;
+            width: 20%;
             background: white;
             border-top-right-radius: 50px;
             border-bottom-right-radius: 50px;
@@ -610,14 +610,14 @@
             height:auto;
             /*background-color:red;*/
         }
-            .AgentInfo .AgentBody .AgentBodyTwo .AgentMessage{
-                width:80%;
-                margin:30px;
-                height: 110px;
-                background-color:lavenderblush;
-                border-radius:30px;
-                padding:50px 40px;
-                margin-bottom:30px
+            .AgentInfo .AgentBody .AgentBodyTwo .AgentMessage {
+                width: 80%;
+                margin: 30px;
+                height: 150px;
+                background-color: lavenderblush;
+                border-radius: 30px;
+                padding: 50px 40px;
+                margin-bottom: 30px
             }
             .AgentInfo .AgentBody .AgentBodyTwo .AgentMessage h3{
                 font-size:40px;
@@ -884,9 +884,27 @@
     justify-content:space-around;
     align-items:center;
     height:40vh;
-    background:red;
+    /*background:red;*/
 }
 .sellers  h3{
     font-size:40px;
     font-weight:700;
 }
+
+
+.text-element {
+    position: relative;
+    display: inline-block;
+}
+
+    .text-element:hover::after {
+        content: attr(data-fulltext);
+        position: absolute;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 5px;
+        white-space: nowrap;
+        z-index: 10;
+        top: 100%;
+        left: 0;
+    }

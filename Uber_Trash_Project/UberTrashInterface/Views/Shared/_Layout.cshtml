@@ -98,8 +98,17 @@
             const originalText = textElement.textContent;
             const truncatedText = originalText.length > 10 ? originalText.slice(0, 10) + '...' : originalText;
             textElement.textContent = truncatedText;
+        }); 
+        
+        textElement.addEventListener('mouseover', () => {
+            const originalText = textElement.textContent;
+            textElement.setAttribute('data-fulltext', originalText);
         });
 
+        textElement.addEventListener('mouseout', () => {
+            const originalText = textElement.textContent;
+            textElement.removeAttribute('data-fulltext');
+        });
         @*
             function hideInput(publicKey) {
             var inputField = document.getElementById('AgentSecertKey_' + publicKey);
